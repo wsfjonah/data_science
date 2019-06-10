@@ -4,6 +4,9 @@ import re
 class LogAnalyzer:
     output = {}
 
+    def __init__(self):
+        self.output.clear()
+
     def process_line(self, line):
         # print(re.search(re.compile("[^ ]*"), line).group(0))  # before the first space, the ip address
         # print(re.search(re.compile("(?<=\[)[^\]]*(?=\])"), line).group(0))  # between the first [], the timestamp

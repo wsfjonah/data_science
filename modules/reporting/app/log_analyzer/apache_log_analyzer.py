@@ -25,6 +25,12 @@ class APILogAnalyzer(log_analyzer.LogAnalyzer):
         try:
             key = re.search(re.compile("(?<=\")[^\"]*(?=\")"), line).group(0)
             key = key.split(" ")[1]
+            key = key.split("?")[0]
+            if 'api' in key:
+                url_comps = key.split("/")
+                key = url_comps[0]+"/"+url_comps[1]+"/"+url_comps[2]+"/"+url_comps[3]
+            else:
+                raise Exception("not api url")
         except Exception:
             pass
         else:

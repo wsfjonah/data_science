@@ -8,8 +8,8 @@ import time
 import traceback
 
 import bson
-import reporting.importer.high_time_series_data as hrtsda
-import reporting.importer.time_series_data as tsda
+import reporting.app.importer.high_time_series_data as hrtsda
+import reporting.app.importer.time_series_data as tsda
 from pymongo import MongoClient
 import reporting.common.config4me as config
 import reporting.common.log4me as log

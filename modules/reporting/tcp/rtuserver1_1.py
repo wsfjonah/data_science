@@ -3,7 +3,7 @@ import datetime
 import json
 import os
 import traceback
-import reporting.importer.bxru1_1_parser as parser
+import reporting.app.importer.bxru1_1_parser as parser
 import reporting.common.log4me as log
 import reporting.common.config4me as config
 

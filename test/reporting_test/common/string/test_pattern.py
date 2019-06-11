@@ -23,7 +23,8 @@ line = "<html><body><h1>[hello world]</h1></body></html>"
 print(re.search(re.compile("(?<=\[)[^\]]*(?=\])"), line).group(0))
 print(re.search(re.compile("(?<=<h1>).+?(?=</h1>)"), line).group(0))
 
-line = '47.92.115.203 - - [10/Jun/2019:07:20:27 +0800] "GET / HTTP/1.1" 200 5654 "-" "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D))"'
+# line = '47.92.115.203 - - [10/Jun/2019:07:20:27 +0800] "GET / HTTP/1.1" 200 5654 "-" "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D))"'
+line = '80.82.70.187 - - [10/Jun/2019:07:06:52 +0800] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 461 "-" "Mozilla"'
 print(re.search(re.compile("[^ ]*"), line).group(0))
 print(re.search(re.compile("(?<=\[)[^\]]*(?=\])"), line).group(0))
 print(re.search(re.compile("(?<=\")[^\"]*(?=\")"), line).group(0))

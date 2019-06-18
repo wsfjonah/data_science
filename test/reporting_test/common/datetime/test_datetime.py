@@ -8,3 +8,7 @@ t = time.strptime(timestr, '%d/%b/%Y:%H:%M:%S')
 dt = datetime.datetime.fromtimestamp(time.mktime(t))
 print(type(t))
 print(dt.replace(minute=0, second=0))
+
+now = datetime.datetime.now()
+print(now)
+print(now - datetime.timedelta(seconds=1))

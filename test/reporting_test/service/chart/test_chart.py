@@ -19,9 +19,11 @@ def test_base_chart():
 def test_tsda_chart():
     chart = tsda_chart.TsdaChart('Data Chart', 'X bar', 'Y bar')
     n = 8
-    x = np.arange(n) + 1
-    y = np.random.uniform(0.5, 1.0, n)
-    chart.set_data(x=x, y=y).plot().show()
+    chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(0.5, 1.0, n))
+    chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(0.5, 1.0, n))
+    chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(0.5, 1.0, n))
+    chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(0.5, 1.0, n))
+    chart.plot().show()
 
 
 def test_transient_chart():
@@ -34,7 +36,8 @@ def test_correlation_chart():
     chart = correlation_chart.CorrelationChart('Web Access Log', 'Hr', 'Count')
     n = 24
     chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(50, 100, n))
-    chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(20, 50, n))
+    chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(30, 60, n))
+    chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(20, 35, n))
     chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(10, 20, n))
     chart.plot().show()
 

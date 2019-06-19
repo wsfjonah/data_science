@@ -2,9 +2,9 @@ import reporting.services.chart.base_chart as base_chart
 
 
 class CorrelationChart(base_chart.BaseChart):
-    MAX_PLOT = 3
+    MAX_PLOT = 4
     width = 0.35
-    facecolor = ['lightskyblue', 'yellowgreen', 'lightblue']
+    facecolor = ['lightskyblue', 'yellowgreen', 'lightblue', 'orange']
     edgecolor = 'white'
 
     data = []
@@ -19,11 +19,11 @@ class CorrelationChart(base_chart.BaseChart):
 
     def plot(self):
         if len(self.data) > self.MAX_PLOT:
-            raise Exception("No. of data set", len(self.data), "is more than max:", self.MAX_PLOT)
+            raise Exception("No. of data set " + str(len(self.data)) + " is more than max: " + str(self.MAX_PLOT))
         self.sub_plt = self.get_plotter()
         index = 0
-        for dataset in self.data:
-            self.sub_plt.bar(dataset[0], dataset[1], width=self.width, facecolor=self.facecolor[index],
+        for data_set in self.data:
+            self.sub_plt.bar(data_set[0], data_set[1], width=self.width, facecolor=self.facecolor[index],
                              edgecolor=self.edgecolor)
             index += 1
         return self

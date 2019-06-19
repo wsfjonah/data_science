@@ -9,8 +9,7 @@ class BaseChart:
     label_x = None
     label_y = None
 
-    data_x = None
-    data_y = None
+    data = []
 
     def __init__(self, title, label_x, label_y, style='bmh', win_x=9, win_y=6):
         plt.style.use(style)
@@ -18,14 +17,18 @@ class BaseChart:
         self.title = title
         self.label_x = label_x
         self.label_y = label_y
+        self.data.clear()
+
+    def clear(self):
+        self.data.clear()
 
     def show(self):
         plt.show()
 
     def set_data(self, **data):
         if ('x' in data) & ('y' in data):
-            self.data_x = data['x']
-            self.data_y = data['y']
+            self.clear()
+            self.data.append([data['x'], data['y']])
         return self
 
     def get_plotter(self):
@@ -37,6 +40,6 @@ class BaseChart:
 
     def plot(self):
         self.sub_plt = self.get_plotter()
-        self.sub_plt.bar(self.data_x, self.data_y, width=0.35, facecolor='lightskyblue', edgecolor='white')
+        self.sub_plt.bar(self.data[0][0], self.data[0][1], width=0.35, facecolor='lightskyblue', edgecolor='white')
         # self.sub_plt.axvspan(1, 2, alpha=0.2)
         return self

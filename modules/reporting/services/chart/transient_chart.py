@@ -1,6 +1,4 @@
 import reporting.services.chart.tsda_chart as tsda_chart
-import reporting.services.simulator.transient_sim as transient_sim
-import datetime
 
 
 class TransientChart(tsda_chart.TsdaChart):
@@ -17,12 +15,5 @@ class TransientChart(tsda_chart.TsdaChart):
     def plot(self):
         tsda_chart.TsdaChart.plot(self)
         self.add_event_info()
-        self.sub_plt.axvspan(self.data_x[10], self.data_x[-10], facecolor='#2ca02c', alpha=0.2)
+        self.sub_plt.axvspan(self.data[0][0][10], self.data[0][0][-10], facecolor='#2ca02c', alpha=0.2)
         return self
-
-
-if __name__ == "__main__":
-    time_list, value_list = transient_sim.TransientSimulator(datetime.datetime.now()).generate()
-    chart = TransientChart("Transient", "Time", "Value")
-    chart.set_data(x=time_list, y=value_list).plot().show()
-

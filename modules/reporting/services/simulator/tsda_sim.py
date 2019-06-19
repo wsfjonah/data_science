@@ -4,17 +4,20 @@ import numpy as np
 
 
 class TsdaSimulator(base_sim.BaseSimulator):
-    interval = None
+    interval = None  # in seconds
     end_time = None
 
-    def __init__(self, length, interval=60, end_time=datetime.datetime.now()):  # default interval is 60s
+    def __init__(self, length, interval_sec=60, end_time=datetime.datetime.now()):  # default interval is 60s
         base_sim.BaseSimulator.__init__(self, length)
-        self.interval = interval
+        self.interval = interval_sec
         self.end_time = end_time
 
-    def generate(self):
+    def value_uniform(self, length):
+        return np.random.uniform(0.5, 1.0, length)
+
+    def generate(self, value_func=value_uniform):
         x_list = np.array([])
-        y_list = np.random.uniform(0.5, 1.0, self.length)
+        y_list = value_func(self, length=self.length)
         count = 0
         while count < self.length:
             curr_time = self.end_time-datetime.timedelta(seconds=self.interval*count)

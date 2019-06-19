@@ -16,20 +16,23 @@ class BaseChart:
         self.label_x = label_x
         self.label_y = label_y
 
+    def show(self):
+        plt.show()
+
     def set_data(self, **data):
         if 'x' in data:
             self.data_x = data['x']
         if 'y' in data:
             self.data_y = data['y']
+        return self
 
     def plot(self):
         sub_plt = self.fig.add_subplot(1, 1, 1)
         sub_plt.set_title(self.title, fontsize=20)
         sub_plt.set_xlabel(self.label_x)
         sub_plt.set_ylabel(self.label_y)
-
-        plt.bar(self.data_x, self.data_y, width=0.35, facecolor='lightskyblue', edgecolor='white')
-        plt.show()
+        sub_plt.bar(self.data_x, self.data_y, width=0.35, facecolor='lightskyblue', edgecolor='white')
+        return self
 
 
 if __name__ == "__main__":
@@ -38,7 +41,5 @@ if __name__ == "__main__":
     X = np.arange(n) + 1
     Y1 = np.random.uniform(0.5, 1.0, n)
 
-    chart.set_data(x=X, y=Y1)
-
-    chart.plot()
+    chart.set_data(x=X, y=Y1).plot().show()
 

@@ -1,5 +1,4 @@
 import reporting.services.chart.base_chart as base_chart
-from matplotlib import pyplot as plt
 import numpy as np
 
 
@@ -13,8 +12,8 @@ class TsdaChart(base_chart.BaseChart):
         sub_plt.set_xlabel(self.label_x)
         sub_plt.set_ylabel(self.label_y)
 
-        plt.plot(self.data_x, self.data_y, color='lightskyblue')
-        plt.show()
+        sub_plt.plot(self.data_x, self.data_y, color='lightskyblue')
+        return self
 
 
 if __name__ == "__main__":
@@ -23,6 +22,5 @@ if __name__ == "__main__":
     X = np.arange(n) + 1
     Y1 = np.random.uniform(0.5, 1.0, n)
 
-    chart.set_data(x=X, y=Y1)
+    chart.set_data(x=X, y=Y1).plot().show()
 
-    chart.plot()

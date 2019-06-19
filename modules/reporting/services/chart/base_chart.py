@@ -10,8 +10,9 @@ class BaseChart:
     data_x = ''
     data_y = ''
 
-    def __init__(self, title, label_x, label_y):
-        self.fig = plt.figure(figsize=(9, 6))
+    def __init__(self, title, label_x, label_y, style='bmh', win_x=9, win_y=6):
+        plt.style.use(style)
+        self.fig = plt.figure(figsize=(win_x, win_y))
         self.title = title
         self.label_x = label_x
         self.label_y = label_y
@@ -32,6 +33,7 @@ class BaseChart:
         sub_plt.set_xlabel(self.label_x)
         sub_plt.set_ylabel(self.label_y)
         sub_plt.bar(self.data_x, self.data_y, width=0.35, facecolor='lightskyblue', edgecolor='white')
+        # sub_plt.axvspan(1, 2, alpha=0.2)
         return self
 
 

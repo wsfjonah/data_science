@@ -3,16 +3,18 @@ import numpy as np
 
 
 class TsdaChart(base_chart.BaseChart):
+    sub_plt = None
+
     def __init__(self, title, label_x, label_y):
-        base_chart.BaseChart.__init__(self, title, label_x, label_y)
+        base_chart.BaseChart.__init__(self, title, label_x, label_y, win_x=12, win_y=4)
 
     def plot(self):
-        sub_plt = self.fig.add_subplot(1, 1, 1)
-        sub_plt.set_title(self.title, fontsize=20)
-        sub_plt.set_xlabel(self.label_x)
-        sub_plt.set_ylabel(self.label_y)
+        self.sub_plt = self.fig.add_subplot(1, 1, 1)
+        self.sub_plt.set_title(self.title, fontsize=20)
+        self.sub_plt.set_xlabel(self.label_x)
+        self.sub_plt.set_ylabel(self.label_y)
 
-        sub_plt.plot(self.data_x, self.data_y, color='lightskyblue')
+        self.sub_plt.plot(self.data_x, self.data_y, color='lightskyblue')
         return self
 
 

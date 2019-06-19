@@ -6,6 +6,7 @@ import reporting.services.chart.tsda_chart as tsda_chart
 import reporting.services.chart.transient_chart as transient_chart
 import reporting.services.chart.correlation_chart as correlation_chart
 import reporting.services.simulator.transient_sim as transient_sim
+import reporting.services.chart.bar3d_chart as bar3d_chart
 
 
 def test_base_chart():
@@ -42,8 +43,16 @@ def test_correlation_chart():
     chart.plot().show()
 
 
+def test_bar3d_chart():
+    chart = bar3d_chart.Bar3DChart('Data Chart', 'X bar', 'Y bar', 'Z')
+    n = 8
+    chart.set_data(x=np.arange(n) + 1, y=np.random.uniform(0.5, 1.0, n), z=np.random.uniform(20, 30, n))
+    chart.plot().show()
+
+
 if __name__ == "__main__":
     test_base_chart()
     test_tsda_chart()
     test_transient_chart()
     test_correlation_chart()
+    test_bar3d_chart()

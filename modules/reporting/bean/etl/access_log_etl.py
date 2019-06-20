@@ -55,7 +55,7 @@ class AccessLogETL(base_etl.BaseETL):
                 pass
 
     def to_chart_data(self):
-        result = []
+        result = {}
         for url in self.url_patterns:
             x = []
             y = []
@@ -63,14 +63,16 @@ class AccessLogETL(base_etl.BaseETL):
                 if url in k:
                     x.append(k[1])
                     y.append(self.data[k])
-            result.append((x, y))
+            result[url] = (x, y)
         return result
 
     def draw(self):
         chart = correlation_chart.CorrelationChart(self.title, self.label_x, self.label_y)
         result = self.to_chart_data()
-        for r in result:
-            chart.set_data(x=r[0], y=r[1])
+
+        for k in result.keys():
+            v = result[k]
+            chart.set_data(x=v[0], y=v[1], label=k)
         chart.plot().show()
 
 

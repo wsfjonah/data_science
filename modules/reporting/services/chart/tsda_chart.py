@@ -19,7 +19,8 @@ class TsdaChart(base_chart.BaseChart):
         self.axes = self.get_axes()
         index = 0
         for data_set in self.data:
-            self.axes.plot(data_set[0], data_set[1], color=self.facecolor[index])
+            self.axes.plot(data_set[0], data_set[1], color=self.facecolor[index], label=self.label_y+" "+str(index))
             index += 1
+
         return self
 

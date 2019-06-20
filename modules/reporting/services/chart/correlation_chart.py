@@ -15,7 +15,10 @@ class CorrelationChart(base_chart.BaseChart):
 
     def set_data(self, **data):
         if ('x' in data) & ('y' in data):
-            self.data.append([data['x'], data['y']])
+            if 'label' in data:
+                self.data.append([data['x'], data['y'], data['label']])
+            else:
+                self.data.append([data['x'], data['y']])
         return self
 
     def plot(self):
@@ -24,8 +27,12 @@ class CorrelationChart(base_chart.BaseChart):
         self.axes = self.get_axes()
         index = 0
         for data_set in self.data:
+            label = str(index)
+            if len(data_set) > 2:  # get label from data set
+                label = data_set[2]
+
             self.axes.bar(data_set[0], data_set[1], width=self.width, facecolor=self.facecolor[index],
-                             edgecolor=self.edgecolor)
+                             edgecolor=self.edgecolor, label=label)
             index += 1
 
         plt.legend(self.axes.get_legend_handles_labels())

@@ -23,6 +23,8 @@ class BaseChart:
         self.data.clear()
 
     def show(self):
+        if self.axes is not None:
+            self.axes.legend()
         plt.show()
 
     def print_meta(self):
@@ -43,6 +45,7 @@ class BaseChart:
 
     def plot(self):
         self.axes = self.get_axes()
-        self.axes.bar(self.data[0][0], self.data[0][1], width=0.35, facecolor='lightskyblue', edgecolor='white')
-        # self.sub_plt.axvspan(1, 2, alpha=0.2)
+        self.axes.bar(self.data[0][0], self.data[0][1], width=0.35, facecolor='lightskyblue', edgecolor='white',
+                      label=self.label_y)
+        # self.axes.axvspan(1, 2, alpha=0.2)
         return self

@@ -39,13 +39,13 @@ class AccessLogETL(base_etl.BaseETL):
         try:
             fobj = open(file_path, 'r')
         except IOError as e:
-            log.info('Fail to open file: ' + file_path, e)
+            log.info('Fail to open file: ' + file_path+str(e))
         else:
             for line in fobj:
-                self.__parse_row(line)
+                self._parse_row(line)
             fobj.close()
 
-    def __parse_row(self, row):
+    def _parse_row(self, row):
         for url in self.url_patterns:
             try:
                 if url in row:

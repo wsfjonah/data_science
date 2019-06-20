@@ -29,12 +29,12 @@ class JsonETL(base_etl.BaseETL):
             with open(file_path, 'r') as load_f:
                 json_obj = json.load(load_f)
                 for k, v in json_obj['tsda']['data'].items():
-                    self.__parse_row((k, v))
+                    self._parse_row((k, v))
         except Exception as e:
             print(e)
             pass
 
-    def __parse_row(self, row):
+    def _parse_row(self, row):
         key = datetime.datetime.fromtimestamp(int(row[0])/1000)
         value = row[1]
         self.store_value(key, value)

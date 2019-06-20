@@ -40,7 +40,7 @@ class Bar3DChart(base_chart.BaseChart):
             raise Exception("Input Data Set need to have data list x, y, z")
         return self
 
-    def get_multi_plotter(self, pos):
+    def get_multi_axes(self, pos):
         axes = self.fig.add_subplot(221+pos, projection='3d')
         axes.view_init(elev=self.directions[pos][0], azim=self.directions[pos][1])
         # axes.set_title(self.title, fontsize=20)
@@ -50,8 +50,8 @@ class Bar3DChart(base_chart.BaseChart):
         return axes
 
     def plot(self):
-        self.get_multi_plotter(0).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
-        self.get_multi_plotter(1).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
-        self.get_multi_plotter(2).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
-        self.get_multi_plotter(3).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
+        self.get_multi_axes(0).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
+        self.get_multi_axes(1).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
+        self.get_multi_axes(2).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
+        self.get_multi_axes(3).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
         return self

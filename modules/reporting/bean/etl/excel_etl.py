@@ -27,9 +27,9 @@ class ExcelETL(base_etl.BaseETL):
         sheet = pd.read_excel(io=file, header=8)
         for i in sheet.index.values:
             row_data = sheet.loc[i]
-            self.__parse_row(row_data)
+            self._parse_row(row_data)
 
-    def __parse_row(self, row):
+    def _parse_row(self, row):
         x = tool.extract_num_from_str(row[self.field_x])
         y = int(row[self.field_y].split('-')[2])
         z = int(row[self.field_z])

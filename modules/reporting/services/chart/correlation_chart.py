@@ -1,5 +1,4 @@
 import reporting.services.chart.base_chart as base_chart
-from matplotlib import pyplot as plt
 
 
 class CorrelationChart(base_chart.BaseChart):
@@ -34,6 +33,4 @@ class CorrelationChart(base_chart.BaseChart):
             self.axes.bar(data_set[0], data_set[1], width=self.width, facecolor=self.facecolor[index],
                              edgecolor=self.edgecolor, label=label)
             index += 1
-
-        plt.legend(self.axes.get_legend_handles_labels())
         return self

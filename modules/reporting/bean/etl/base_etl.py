@@ -7,7 +7,7 @@ class BaseETL:
     def extract(self, key):
         pass
 
-    def __parse_row(self, row):
+    def _parse_row(self, row):
         pass
 
     def store_value(self, key, value):

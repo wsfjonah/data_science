@@ -1,4 +1,5 @@
 import math
+import re
 
 BASE62 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
@@ -74,3 +75,7 @@ def base62_decode(string, alphabet=BASE62):
         idx += 1
 
     return num / 10
+
+
+def extract_num_from_str(str):
+    return int(re.sub('[\D_]+', '', str))

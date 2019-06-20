@@ -13,13 +13,13 @@ dz = [5, 4, 7]        #height of each bar
 
 class Bar3DChart(base_chart.BaseChart):
     directions = [[30, 30], [10, 10], [10, -80], [90, -90]]
-    width = 1
-    depth = 0.05
+    width = 2
+    depth = 0.5
     color = 'lightblue'
     label_z = ''
 
     def __init__(self, title, label_x, label_y, label_z):
-        base_chart.BaseChart.__init__(self, title, label_x, label_y, win_x=6, win_y=6)
+        base_chart.BaseChart.__init__(self, title, label_x, label_y, win_x=20, win_y=20)
         self.label_z = label_z
         self.fig.suptitle(title, fontsize=20)
 
@@ -40,7 +40,7 @@ class Bar3DChart(base_chart.BaseChart):
             raise Exception("Input Data Set need to have data list x, y, z")
         return self
 
-    def get_plotter(self, pos):
+    def get_multi_plotter(self, pos):
         axes = self.fig.add_subplot(221+pos, projection='3d')
         axes.view_init(elev=self.directions[pos][0], azim=self.directions[pos][1])
         # axes.set_title(self.title, fontsize=20)
@@ -50,12 +50,8 @@ class Bar3DChart(base_chart.BaseChart):
         return axes
 
     def plot(self):
-        self.get_plotter(0).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4],
-                                  self.data[0][5], color=self.color)
-        self.get_plotter(1).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4],
-                                  self.data[0][5], color=self.color)
-        self.get_plotter(2).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4],
-                                  self.data[0][5], color=self.color)
-        self.get_plotter(3).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4],
-                                  self.data[0][5], color=self.color)
+        self.get_multi_plotter(0).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color)
+        self.get_multi_plotter(1).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color)
+        self.get_multi_plotter(2).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color)
+        self.get_multi_plotter(3).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color)
         return self

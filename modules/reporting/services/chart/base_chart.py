@@ -25,6 +25,9 @@ class BaseChart:
     def show(self):
         plt.show()
 
+    def print_meta(self):
+        print(self.title, self.label_x, self.label_y)
+
     def set_data(self, **data):
         if ('x' in data) & ('y' in data):
             self.clear()

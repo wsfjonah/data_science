@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 
 class BaseChart:
     fig = None
-    sub_plt = None
+    axes = None
 
     title = None
     label_x = None
@@ -34,15 +34,15 @@ class BaseChart:
             self.data.append([data['x'], data['y']])
         return self
 
-    def get_plotter(self):
-        sub_plt = self.fig.add_subplot(1, 1, 1)
-        sub_plt.set_title(self.title, fontsize=20)
-        sub_plt.set_xlabel(self.label_x)
-        sub_plt.set_ylabel(self.label_y)
-        return sub_plt
+    def get_axes(self):
+        axes0 = self.fig.add_subplot(1, 1, 1)
+        axes0.set_title(self.title, fontsize=20)
+        axes0.set_xlabel(self.label_x)
+        axes0.set_ylabel(self.label_y)
+        return axes0
 
     def plot(self):
-        self.sub_plt = self.get_plotter()
-        self.sub_plt.bar(self.data[0][0], self.data[0][1], width=0.35, facecolor='lightskyblue', edgecolor='white')
+        self.axes = self.get_axes()
+        self.axes.bar(self.data[0][0], self.data[0][1], width=0.35, facecolor='lightskyblue', edgecolor='white')
         # self.sub_plt.axvspan(1, 2, alpha=0.2)
         return self

@@ -1,4 +1,5 @@
 import reporting.services.chart.base_chart as base_chart
+from matplotlib import pyplot as plt
 
 
 class CorrelationChart(base_chart.BaseChart):
@@ -20,10 +21,12 @@ class CorrelationChart(base_chart.BaseChart):
     def plot(self):
         if len(self.data) > self.MAX_PLOT:
             raise Exception("No. of data set " + str(len(self.data)) + " is more than max: " + str(self.MAX_PLOT))
-        self.sub_plt = self.get_plotter()
+        self.axes = self.get_axes()
         index = 0
         for data_set in self.data:
-            self.sub_plt.bar(data_set[0], data_set[1], width=self.width, facecolor=self.facecolor[index],
+            self.axes.bar(data_set[0], data_set[1], width=self.width, facecolor=self.facecolor[index],
                              edgecolor=self.edgecolor)
             index += 1
+
+        plt.legend(self.axes.get_legend_handles_labels())
         return self

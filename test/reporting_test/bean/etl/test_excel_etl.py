@@ -1,6 +1,6 @@
-import reporting.bean.etl.excel_analyzer as excel_analyzer
+import reporting.bean.etl.excel_etl as excel_analyzer
 
-analyzer = excel_analyzer.ExcelAnalyzer()
+analyzer = excel_analyzer.ExcelETL()
 
 analyzer.extract('wafer_test_1.xlsx')
 analyzer.draw()

@@ -3,7 +3,7 @@ import reporting.services.chart.base_chart as base_chart
 
 class TsdaChart(base_chart.BaseChart):
     MAX_PLOT = 4
-    facecolor = ['lightskyblue', 'yellowgreen', 'lightblue', 'orange']
+    facecolor = ['darkslateblue', 'lightskyblue', 'yellowgreen', 'lightblue', 'orange']
 
     def __init__(self, title, label_x, label_y):
         base_chart.BaseChart.__init__(self, title, label_x, label_y, win_x=12, win_y=4)

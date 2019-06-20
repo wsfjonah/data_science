@@ -15,5 +15,6 @@ class TransientChart(tsda_chart.TsdaChart):
     def plot(self):
         tsda_chart.TsdaChart.plot(self)
         self.add_event_info()
-        self.axes.axvspan(self.data[0][0][10], self.data[0][0][-10], facecolor='#2ca02c', alpha=0.2)
+        length = int(len(self.data[0][0])/3)
+        self.axes.axvspan(self.data[0][0][length], self.data[0][0][-length], facecolor='#2ca02c', alpha=0.2)
         return self

@@ -90,7 +90,7 @@ def load_statistic(statistic_name, statistic_type):
     return statistic_keys, statistics, statistics2
 
 
-def calculate_statistic(statistic_name, statistic_type):
+def calculate_statistic(statistic_name, statistic_type, keyword=''):
     cache_dir, statistic_index, statistic_keys = get_cache_properties(statistic_name, statistic_type)
     x = []
     y = []
@@ -101,13 +101,16 @@ def calculate_statistic(statistic_name, statistic_type):
             while True:
                 text_line = f.readline()
                 if text_line:
+                    if keyword not in text_line:
+                        continue
                     try:
                         json_obj = json.loads(tool.json_prop(text_line))
                         # value = json_obj['confidence']
                         value = round(json_obj['max']-json_obj['min'], 2)
-                        timestamp = datetime.datetime.fromtimestamp(json_obj['ts']/1000).replace(year=2017, month=1, day=1)
-                        x.append(timestamp)
-                        y.append(value)
+                        if 4 < value < 30:
+                            timestamp = datetime.datetime.fromtimestamp(json_obj['ts']/1000).replace(year=2017, month=1, day=1)
+                            x.append(timestamp)
+                            y.append(value)
                     except Exception:
                         pass
                 else:

@@ -9,14 +9,17 @@ class BaseChart:
     label_x = None
     label_y = None
 
+    xaxis_formatter = None
+
     data = []
 
-    def __init__(self, title, label_x, label_y, style='bmh', win_x=9, win_y=6):
+    def __init__(self, title, label_x, label_y, style='bmh', win_x=9, win_y=6, xaxis_formatter=None):
         plt.style.use(style)
         self.fig = plt.figure(figsize=(win_x, win_y))
         self.title = title
         self.label_x = label_x
         self.label_y = label_y
+        self.xaxis_formatter = xaxis_formatter
         self.data.clear()
 
     def clear(self):
@@ -41,6 +44,8 @@ class BaseChart:
         axes0.set_title(self.title, fontsize=20)
         axes0.set_xlabel(self.label_x)
         axes0.set_ylabel(self.label_y)
+        if self.xaxis_formatter is not None:
+            axes0.xaxis.set_major_formatter(self.xaxis_formatter)
         return axes0
 
     def plot(self):

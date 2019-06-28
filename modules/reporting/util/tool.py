@@ -79,3 +79,13 @@ def base62_decode(string, alphabet=BASE62):
 
 def extract_num_from_str(str):
     return int(re.sub('[\D_]+', '', str))
+
+
+def json_prop(json_str):  # 给json内的键加上双引号
+    '''
+    return json_str.replace(' ', '').replace('\n', '').replace('\r', '')\
+               .replace("'", '"').replace('{', '{"').replace(':', '":')\
+               .replace('],', '],"').replace('",', '","')
+    '''
+    return json_str.replace("'", '"').replace(': None', ': "None"').replace('datetime.datetime(', '"').replace(')', '"')\
+        .replace('inf', '0')

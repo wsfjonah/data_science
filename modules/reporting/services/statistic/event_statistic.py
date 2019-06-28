@@ -1,14 +1,17 @@
 import os
 import time
+import datetime
 import json
 import traceback
 import reporting.common.config4me as config
+import reporting.util.tool as tool
 
 EVENT_STATISTIC_TYPE_WEEK = 'w'
 EVENT_STATISTIC_TYPE_HOUR = 'h'
 EVENT_STATISTIC_TYPE_MNTH = 'm'
 
 CACHE_ROOT = config.get_config('File_Storage', 'fs.cache')
+
 
 def cache_event_statistic(event, statistic_name, statistic_type):
     # TODO: based on the event data, update the event statistics and store in local
@@ -85,6 +88,33 @@ def load_statistic(statistic_name, statistic_type):
         finally:
             f.close()
     return statistic_keys, statistics, statistics2
+
+
+def calculate_statistic(statistic_name, statistic_type):
+    cache_dir, statistic_index, statistic_keys = get_cache_properties(statistic_name, statistic_type)
+    x = []
+    y = []
+    for key in statistic_keys:
+        file_path = os.path.join(cache_dir, str(key)+".dat")
+        f = open(file_path, 'r')
+        try:
+            while True:
+                text_line = f.readline()
+                if text_line:
+                    try:
+                        json_obj = json.loads(tool.json_prop(text_line))
+                        # value = json_obj['confidence']
+                        value = round(json_obj['max']-json_obj['min'], 2)
+                        timestamp = datetime.datetime.fromtimestamp(json_obj['ts']/1000).replace(year=2017, month=1, day=1)
+                        x.append(timestamp)
+                        y.append(value)
+                    except Exception:
+                        pass
+                else:
+                    break
+        finally:
+            f.close()
+    return statistic_keys, x, y
 
 
 if __name__ == '__main__':

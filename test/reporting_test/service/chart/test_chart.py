@@ -59,11 +59,12 @@ def test_scatter_chart():
 
 
 if __name__ == "__main__":
-    # '''
     test_base_chart()
+    '''
     test_tsda_chart()
     test_transient_chart()
     test_correlation_chart()
     test_bar3d_chart()
-    # '''
+    
     test_scatter_chart()
+    '''

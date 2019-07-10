@@ -5,6 +5,7 @@ import time
 import reporting.common.config4me as config
 import reporting.common.log4me as log
 import reporting.services.chart.correlation_chart as correlation_chart
+import reporting.services.echarts.bar_echarts as bar_echarts
 import reporting.bean.etl.base_etl as base_etl
 
 root_dir = config.get_config_default('File_Storage', 'fs.dws', '/var/dws/')
@@ -74,6 +75,15 @@ class AccessLogETL(base_etl.BaseETL):
             v = result[k]
             chart.set_data(x=v[0], y=v[1], label=k)
         chart.plot().show()
+
+    def get_echarts(self):
+        chart = bar_echarts.BarChart(self.title, self.label_x, self.label_y)
+        result = self.to_chart_data()
+
+        for k in result.keys():
+            v = result[k]
+            chart.set_data(x=v[0], y=v[1], label=k)
+        return chart.plot().show()
 
 
 

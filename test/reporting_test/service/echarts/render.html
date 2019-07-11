@@ -2,16 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Awesome-pyecharts</title>
+    <title>Data Chart</title>
             <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
 
 </head>
 <body>
-    <div id="8f2ea88f6be24683b2d12524d7c3e01c" style="width:900px; height:500px;"></div>
+    <div id="fb013d0c709a4d638a760cca75738189" style="width:900px; height:500px;"></div>
     <script>
-        var chart_8f2ea88f6be24683b2d12524d7c3e01c = echarts.init(
-            document.getElementById('8f2ea88f6be24683b2d12524d7c3e01c'), 'white', {renderer: 'canvas'});
-        var option_8f2ea88f6be24683b2d12524d7c3e01c = {
+        var chart_fb013d0c709a4d638a760cca75738189 = echarts.init(
+            document.getElementById('fb013d0c709a4d638a760cca75738189'), 'white', {renderer: 'canvas'});
+        var option_fb013d0c709a4d638a760cca75738189 = {
     "color": [
         "#c23531",
         "#2f4554",
@@ -43,14 +43,14 @@
             "type": "bar",
             "name": "Y bar0",
             "data": [
-                8,
-                4,
                 6,
-                3,
-                3,
-                8,
+                5,
+                6,
+                6,
                 4,
-                1
+                4,
+                3,
+                8
             ],
             "stack": "stack",
             "barCategoryGap": "20%",
@@ -64,14 +64,14 @@
             "type": "bar",
             "name": "Y bar1",
             "data": [
-                3,
-                3,
-                2,
-                7,
                 6,
+                5,
+                6,
+                9,
                 2,
                 9,
-                1
+                6,
+                5
             ],
             "stack": "stack",
             "barCategoryGap": "20%",
@@ -109,9 +109,10 @@
     },
     "xAxis": [
         {
+            "name": "X bar",
             "show": true,
             "scale": false,
-            "nameLocation": "end",
+            "nameLocation": "center",
             "nameGap": 15,
             "gridIndex": 0,
             "inverse": false,
@@ -141,9 +142,10 @@
     ],
     "yAxis": [
         {
+            "name": "Y bar",
             "show": true,
             "scale": false,
-            "nameLocation": "end",
+            "nameLocation": "center",
             "nameGap": 15,
             "gridIndex": 0,
             "inverse": false,
@@ -165,9 +167,48 @@
         {
             "text": "Data Chart"
         }
-    ]
+    ],
+    "toolbox": {
+        "show": true,
+        "orient": "horizontal",
+        "itemSize": 15,
+        "itemGap": 10,
+        "left": "80%",
+        "feature": {
+            "saveAsImage": {
+                "show": true,
+                "title": "save as image",
+                "type": "png"
+            },
+            "restore": {
+                "show": true,
+                "title": "restore"
+            },
+            "dataView": {
+                "show": true,
+                "title": "data view",
+                "readOnly": false
+            },
+            "dataZoom": {
+                "show": true,
+                "title": {
+                    "zoom": "data zoom",
+                    "back": "data zoom restore"
+                }
+            }
+        }
+    },
+    "dataZoom": {
+        "show": true,
+        "type": "slider",
+        "realtime": true,
+        "start": 0,
+        "end": 100,
+        "orient": "horizontal",
+        "zoomLock": false
+    }
 };
-        chart_8f2ea88f6be24683b2d12524d7c3e01c.setOption(option_8f2ea88f6be24683b2d12524d7c3e01c);
+        chart_fb013d0c709a4d638a760cca75738189.setOption(option_fb013d0c709a4d638a760cca75738189);
     </script>
 </body>
 </html>

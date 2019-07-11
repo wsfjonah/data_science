@@ -14,8 +14,18 @@ x = np.arange(6) + 1
 v = np.random.uniform(1, 10, 6).tolist()
 
 print(x)
-chart = Bar()
+chart = Bar(init_opts=opts.InitOpts(page_title='Bar Echart2'))
 chart.add_xaxis(x.tolist())
 chart.add_yaxis("Y bar", v, stack="stack1")
-chart.set_series_opts(label_opts=opts.LabelOpts(is_show=False))
-chart.set_global_opts(title_opts=opts.TitleOpts(title="Bar Echart 2")).render("bar2.html")
+chart.set_series_opts(label_opts=opts.LabelOpts(is_show=True))
+chart.set_global_opts(
+    title_opts=opts.TitleOpts(title="Bar Echart 2", pos_top='top', pos_left='left'),
+    toolbox_opts=opts.ToolboxOpts(is_show=True),
+    xaxis_opts=opts.AxisOpts(name='X Axis', name_location='center'),
+    yaxis_opts=opts.AxisOpts(name='Y Axis'),
+)
+# chart.set_global_opts(datazoom_opts=opts.DataZoomOpts(is_show=True, type_='slider', range_start=0, range_end=100))
+# chart.set_global_opts(xaxis_opts=opts.AxisOpts(name='X Axis', name_location='center'))
+# chart.set_global_opts(yaxis_opts=opts.AxisOpts(name='Y Axis'))
+# chart.set_global_opts(title_opts=opts.TitleOpts(title="Bar Echart 2", pos_top='top', pos_left='left'))
+chart.render("bar2.html")

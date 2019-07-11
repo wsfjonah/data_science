@@ -2,16 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Awesome-pyecharts</title>
+    <title>Bar Echart2</title>
             <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
 
 </head>
 <body>
-    <div id="421b212bae6741fbbee4733f83ca3fe9" style="width:900px; height:500px;"></div>
+    <div id="1550a79b0fdd45189b6bbe7d75a613e7" style="width:900px; height:500px;"></div>
     <script>
-        var chart_421b212bae6741fbbee4733f83ca3fe9 = echarts.init(
-            document.getElementById('421b212bae6741fbbee4733f83ca3fe9'), 'white', {renderer: 'canvas'});
-        var option_421b212bae6741fbbee4733f83ca3fe9 = {
+        var chart_1550a79b0fdd45189b6bbe7d75a613e7 = echarts.init(
+            document.getElementById('1550a79b0fdd45189b6bbe7d75a613e7'), 'white', {renderer: 'canvas'});
+        var option_1550a79b0fdd45189b6bbe7d75a613e7 = {
     "color": [
         "#c23531",
         "#2f4554",
@@ -43,17 +43,17 @@
             "type": "bar",
             "name": "Y bar",
             "data": [
-                0.9461685844548082,
-                0.8628470280325482,
-                0.5081596379168511,
-                0.7849073981757526,
-                0.5905095744302977,
-                0.9039708727075587
+                7.700650941483797,
+                8.964211987879017,
+                7.776443150098901,
+                4.899196191806952,
+                9.99139463639517,
+                3.663967815916908
             ],
             "stack": "stack1",
             "barCategoryGap": "20%",
             "label": {
-                "show": false,
+                "show": true,
                 "position": "top",
                 "margin": 8
             },
@@ -90,9 +90,10 @@
     },
     "xAxis": [
         {
+            "name": "X Axis",
             "show": true,
             "scale": false,
-            "nameLocation": "end",
+            "nameLocation": "center",
             "nameGap": 15,
             "gridIndex": 0,
             "inverse": false,
@@ -120,6 +121,7 @@
     ],
     "yAxis": [
         {
+            "name": "Y Axis",
             "show": true,
             "scale": false,
             "nameLocation": "end",
@@ -142,11 +144,43 @@
     ],
     "title": [
         {
-            "text": "Bar Echart 2"
+            "text": "Bar Echart 2",
+            "left": "left",
+            "top": "top"
         }
-    ]
+    ],
+    "toolbox": {
+        "show": true,
+        "orient": "horizontal",
+        "itemSize": 15,
+        "itemGap": 10,
+        "left": "80%",
+        "feature": {
+            "saveAsImage": {
+                "show": true,
+                "title": "save as image",
+                "type": "png"
+            },
+            "restore": {
+                "show": true,
+                "title": "restore"
+            },
+            "dataView": {
+                "show": true,
+                "title": "data view",
+                "readOnly": false
+            },
+            "dataZoom": {
+                "show": true,
+                "title": {
+                    "zoom": "data zoom",
+                    "back": "data zoom restore"
+                }
+            }
+        }
+    }
 };
-        chart_421b212bae6741fbbee4733f83ca3fe9.setOption(option_421b212bae6741fbbee4733f83ca3fe9);
+        chart_1550a79b0fdd45189b6bbe7d75a613e7.setOption(option_1550a79b0fdd45189b6bbe7d75a613e7);
     </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import numpy as np
 
 import reporting.common.config4me as config
 import reporting.common.log4me as log
@@ -11,6 +12,7 @@ import reporting.bean.etl.base_etl as base_etl
 root_dir = config.get_config_default('File_Storage', 'fs.dws', '/var/dws/')
 sub_dir = 'apache'
 LOG_TIME_PATTERN = '(?<=\[)[^\]]*(?=\])'
+XAXIS_NUM = 24
 
 
 def extract_hr(text):
@@ -55,15 +57,24 @@ class AccessLogETL(base_etl.BaseETL):
             except Exception:
                 pass
 
+    def get_xaxis(self):
+        global XAXIS_NUM
+        return np.arange(XAXIS_NUM).tolist()
+
+    def init_yaxis(self):
+        global XAXIS_NUM
+        return np.zeros(XAXIS_NUM).tolist()
+
     def to_chart_data(self):
         result = {}
         for url in self.url_patterns:
-            x = []
-            y = []
+            x = self.get_xaxis()
+            y = self.init_yaxis()
             for k in self.data.keys():
                 if url in k:
-                    x.append(k[1])
-                    y.append(self.data[k])
+                    # x.append(k[1])
+                    # y.append(self.data[k])
+                    y[k[1]] = self.data[k]
             result[url] = (x, y)
         return result
 
@@ -79,7 +90,6 @@ class AccessLogETL(base_etl.BaseETL):
     def get_echarts(self):
         chart = bar_echarts.BarChart(self.title, self.label_x, self.label_y)
         result = self.to_chart_data()
-
         for k in result.keys():
             v = result[k]
             chart.set_data(x=v[0], y=v[1], label=k)

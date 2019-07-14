@@ -8,6 +8,7 @@ import reporting.util.tool as tool
 
 class ExcelETL(base_etl.BaseETL):
     report_dir = '/var/dws/wafer/'
+    curr_key = None
 
     title = 'Wafer Testing Report'
     label_x = 'Tester (6 as STDX06A, 50 as STDX50A)'
@@ -23,6 +24,7 @@ class ExcelETL(base_etl.BaseETL):
 
     def extract(self, key):
         self.data.clear()
+        self.curr_key = key
         file = os.path.join(self.report_dir, key)
         sheet = pd.read_excel(io=file, header=8)
         for i in sheet.index.values:

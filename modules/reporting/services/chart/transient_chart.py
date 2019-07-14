@@ -2,8 +2,8 @@ import reporting.services.chart.tsda_chart as tsda_chart
 
 
 class TransientChart(tsda_chart.TsdaChart):
-    def __init__(self, title, label_x, label_y):
-        tsda_chart.TsdaChart.__init__(self, title, label_x, label_y)
+    def __init__(self, title, xaxis_name, yaxis_name):
+        tsda_chart.TsdaChart.__init__(self, title, xaxis_name, yaxis_name)
 
     def add_event_info(self, color='purple'):
         axes = self.fig.add_axes([0.3, 0.8, 0.001, 0.001])  # x, y, width, height

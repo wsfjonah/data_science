@@ -1,4 +1,6 @@
 import reporting.services.chart.heatmap_chart as heatmap_chart
+import reporting.services.echarts.heatmap_echarts as heatmap_echarts
+
 
 heatmap = [[1063620, 291288, 213322, 120233, 972752, 1896180, 483012, 1609664, 413538, 778350, 420643, 212472, 2599510,
       1574470, 254141],
@@ -23,4 +25,8 @@ print(len(heatmap[0]))
 chart = heatmap_chart.HeatMapChart('Data Chart', 'X bar', 'Y bar', 'Z')
 chart.set_data(x=data_x, y=data_y, map=heatmap)
 chart.plot().show()
+
+chart = heatmap_echarts.HeatMapChart('Data Chart', 'X bar', 'Y bar')
+chart.set_data(x=data_x, y=data_y, map=heatmap)
+chart.plot().show().render()
 

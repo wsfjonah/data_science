@@ -9,8 +9,8 @@ class CorrelationChart(base_chart.BaseChart):
 
     data = []
 
-    def __init__(self, title, label_x, label_y):
-        base_chart.BaseChart.__init__(self, title, label_x, label_y, win_x=12, win_y=6)
+    def __init__(self, title, xaxis_name, yaxis_name):
+        base_chart.BaseChart.__init__(self, title, xaxis_name, yaxis_name, win_x=12, win_y=6)
 
     def set_data(self, **data):
         if ('x' in data) & ('y' in data):

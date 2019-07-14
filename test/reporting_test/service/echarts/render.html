@@ -7,11 +7,11 @@
 
 </head>
 <body>
-    <div id="fb013d0c709a4d638a760cca75738189" style="width:900px; height:500px;"></div>
+    <div id="ac207a02899a4b1f96ac287f25277f07" style="width:900px; height:500px;"></div>
     <script>
-        var chart_fb013d0c709a4d638a760cca75738189 = echarts.init(
-            document.getElementById('fb013d0c709a4d638a760cca75738189'), 'white', {renderer: 'canvas'});
-        var option_fb013d0c709a4d638a760cca75738189 = {
+        var chart_ac207a02899a4b1f96ac287f25277f07 = echarts.init(
+            document.getElementById('ac207a02899a4b1f96ac287f25277f07'), 'white', {renderer: 'canvas'});
+        var option_ac207a02899a4b1f96ac287f25277f07 = {
     "color": [
         "#c23531",
         "#2f4554",
@@ -43,54 +43,37 @@
             "type": "bar",
             "name": "Y bar0",
             "data": [
-                6,
                 5,
-                6,
-                6,
-                4,
-                4,
-                3,
-                8
-            ],
-            "stack": "stack",
-            "barCategoryGap": "20%",
-            "label": {
-                "show": true,
-                "position": "top",
-                "margin": 8
-            }
-        },
-        {
-            "type": "bar",
-            "name": "Y bar1",
-            "data": [
-                6,
-                5,
-                6,
                 9,
+                5,
                 2,
-                9,
-                6,
+                5,
+                2,
+                5,
                 5
             ],
             "stack": "stack",
             "barCategoryGap": "20%",
             "label": {
-                "show": true,
-                "position": "top",
+                "show": false,
+                "position": "inside",
                 "margin": 8
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
             }
         }
     ],
     "legend": [
         {
             "data": [
-                "Y bar0",
-                "Y bar1"
+                "Y bar0"
             ],
             "selected": {
-                "Y bar0": true,
-                "Y bar1": true
+                "Y bar0": true
             },
             "show": true
         }
@@ -112,7 +95,7 @@
             "name": "X bar",
             "show": true,
             "scale": false,
-            "nameLocation": "center",
+            "nameLocation": "end",
             "nameGap": 15,
             "gridIndex": 0,
             "inverse": false,
@@ -146,7 +129,7 @@
             "show": true,
             "scale": false,
             "nameLocation": "center",
-            "nameGap": 15,
+            "nameGap": 25,
             "gridIndex": 0,
             "inverse": false,
             "offset": 0,
@@ -208,7 +191,7 @@
         "zoomLock": false
     }
 };
-        chart_fb013d0c709a4d638a760cca75738189.setOption(option_fb013d0c709a4d638a760cca75738189);
+        chart_ac207a02899a4b1f96ac287f25277f07.setOption(option_ac207a02899a4b1f96ac287f25277f07);
     </script>
 </body>
 </html>

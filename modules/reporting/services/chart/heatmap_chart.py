@@ -12,9 +12,9 @@ class HeatMapChart(base_chart.BaseChart):
     data_y = []
     heat_map = []
 
-    def __init__(self, title, label_x, label_y, label_z):
-        base_chart.BaseChart.__init__(self, title, label_x, label_y, win_x=20, win_y=5)
-        self.label_z = label_z
+    def __init__(self, title, xaxis_name, yaxis_name, zaxis_name):
+        base_chart.BaseChart.__init__(self, title, xaxis_name, yaxis_name, win_x=20, win_y=5)
+        self.zaxis_name = zaxis_name
 
     def set_data(self, **data):
         if ('x' in data) & ('y' in data) & ('map' in data):

@@ -4,6 +4,8 @@ import os
 
 import reporting.bean.etl.excel_etl as excel_etl
 import reporting.services.chart.heatmap_chart as heatmap_chart
+import reporting.services.echarts.heatmap_echarts as heatmap_echarts
+import reporting.services.echarts.bar3d_echarts as bar3d_echarts
 
 
 class WaferTestETL(excel_etl.ExcelETL):
@@ -38,3 +40,21 @@ class WaferTestETL(excel_etl.ExcelETL):
         x, y, xy_map = self.to_chart_data()
         chart.set_data(x=x, y=y, map=xy_map)
         chart.plot().show()
+
+    def get_echarts(self):
+        chart = heatmap_echarts.HeatMapChart(self.title, self.label_x, self.label_y, self.label_z)
+        x, y, xy_map = self.to_chart_data()
+        chart.set_data(x=x, y=y, map=xy_map)
+        return chart.plot().show()
+
+    def save_echarts(self):
+        file_path = os.path.join(self.report_dir, self.curr_key+'.html')
+        self.get_echarts().render(file_path)
+
+    def save_3decharts(self):
+        chart = bar3d_echarts.Bar3DChart(self.title, self.label_x, self.label_y, self.label_z)
+        x, y, xy_map = self.to_chart_data()
+        chart.set_data(x=x, y=y, map=xy_map)
+
+        file_path = os.path.join(self.report_dir, self.curr_key+'3d.html')
+        chart.plot().show().render(file_path)

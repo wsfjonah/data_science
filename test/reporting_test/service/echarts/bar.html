@@ -2,16 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Access Log Report</title>
+    <title>Data Chart</title>
             <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
 
 </head>
 <body>
-    <div id="28f13d7911644966ac16a986e88e8c60" style="width:900px; height:500px;"></div>
+    <div id="bba400ca473d488fad5120585db84e58" style="width:900px; height:500px;"></div>
     <script>
-        var chart_28f13d7911644966ac16a986e88e8c60 = echarts.init(
-            document.getElementById('28f13d7911644966ac16a986e88e8c60'), 'white', {renderer: 'canvas'});
-        var option_28f13d7911644966ac16a986e88e8c60 = {
+        var chart_bba400ca473d488fad5120585db84e58 = echarts.init(
+            document.getElementById('bba400ca473d488fad5120585db84e58'), 'white', {renderer: 'canvas'});
+        var option_bba400ca473d488fad5120585db84e58 = {
     "color": [
         "#c23531",
         "#2f4554",
@@ -41,118 +41,16 @@
     "series": [
         {
             "type": "bar",
-            "name": "/api/",
+            "name": "Y bar0",
             "data": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
+                3,
+                7,
                 2,
-                109,
-                108,
-                0.0,
-                5,
-                83,
-                129,
-                138,
-                169,
-                147,
-                5,
-                0.0,
-                2,
-                0.0,
-                5,
-                0.0,
-                0.0
-            ],
-            "stack": "stack",
-            "barCategoryGap": "20%",
-            "label": {
-                "show": false,
-                "position": "inside",
-                "margin": 8
-            },
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
-            }
-        },
-        {
-            "type": "bar",
-            "name": "/api/tsevent/",
-            "data": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                16,
-                30,
-                0.0,
-                0.0,
-                83,
-                120,
-                120,
-                120,
-                123,
-                4,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0
-            ],
-            "stack": "stack",
-            "barCategoryGap": "20%",
-            "label": {
-                "show": false,
-                "position": "inside",
-                "margin": 8
-            },
-            "rippleEffect": {
-                "show": true,
-                "brushType": "stroke",
-                "scale": 2.5,
-                "period": 4
-            }
-        },
-        {
-            "type": "bar",
-            "name": "/api/tsda/",
-            "data": [
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                1,
-                2,
-                2,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
                 6,
-                36,
-                2,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0,
-                0.0
+                1,
+                1,
+                1,
+                9
             ],
             "stack": "stack",
             "barCategoryGap": "20%",
@@ -172,14 +70,10 @@
     "legend": [
         {
             "data": [
-                "/api/",
-                "/api/tsevent/",
-                "/api/tsda/"
+                "Y bar0"
             ],
             "selected": {
-                "/api/": true,
-                "/api/tsevent/": true,
-                "/api/tsda/": true
+                "Y bar0": true
             },
             "show": true
         }
@@ -198,7 +92,7 @@
     },
     "xAxis": [
         {
-            "name": "Date Time",
+            "name": "X bar",
             "show": true,
             "scale": false,
             "nameLocation": "end",
@@ -218,7 +112,6 @@
                 }
             },
             "data": [
-                0,
                 1,
                 2,
                 3,
@@ -226,28 +119,13 @@
                 5,
                 6,
                 7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23
+                8
             ]
         }
     ],
     "yAxis": [
         {
-            "name": "Count",
+            "name": "Y bar",
             "show": true,
             "scale": false,
             "nameLocation": "center",
@@ -256,7 +134,6 @@
             "inverse": false,
             "offset": 0,
             "splitNumber": 5,
-            "max": 360,
             "minInterval": 0,
             "splitLine": {
                 "show": false,
@@ -271,7 +148,7 @@
     ],
     "title": [
         {
-            "text": "Access Log Report"
+            "text": "Data Chart"
         }
     ],
     "toolbox": {
@@ -314,7 +191,7 @@
         "zoomLock": false
     }
 };
-        chart_28f13d7911644966ac16a986e88e8c60.setOption(option_28f13d7911644966ac16a986e88e8c60);
+        chart_bba400ca473d488fad5120585db84e58.setOption(option_bba400ca473d488fad5120585db84e58);
     </script>
 </body>
 </html>

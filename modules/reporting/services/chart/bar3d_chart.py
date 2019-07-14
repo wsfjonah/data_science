@@ -16,11 +16,11 @@ class Bar3DChart(base_chart.BaseChart):
     width = 2
     depth = 0.5
     color = 'lightblue'
-    label_z = ''
+    zaxis_name = ''
 
-    def __init__(self, title, label_x, label_y, label_z):
-        base_chart.BaseChart.__init__(self, title, label_x, label_y, win_x=20, win_y=20)
-        self.label_z = label_z
+    def __init__(self, title, xaxis_name, yaxis_name, zaxis_name):
+        base_chart.BaseChart.__init__(self, title, xaxis_name, yaxis_name, win_x=20, win_y=20)
+        self.zaxis_name = zaxis_name
         self.fig.suptitle(title, fontsize=20)
 
     def set_data(self, **data):
@@ -44,14 +44,14 @@ class Bar3DChart(base_chart.BaseChart):
         axes = self.fig.add_subplot(221+pos, projection='3d')
         axes.view_init(elev=self.directions[pos][0], azim=self.directions[pos][1])
         # axes.set_title(self.title, fontsize=20)
-        axes.set_xlabel(self.label_x)
-        axes.set_ylabel(self.label_y)
-        axes.set_zlabel(self.label_z)
+        axes.set_xlabel(self.xaxis_name)
+        axes.set_ylabel(self.yaxis_name)
+        axes.set_zlabel(self.zaxis_name)
         return axes
 
     def plot(self):
-        self.get_multi_axes(0).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
-        self.get_multi_axes(1).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
-        self.get_multi_axes(2).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
-        self.get_multi_axes(3).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.label_z)
+        self.get_multi_axes(0).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.zaxis_name)
+        self.get_multi_axes(1).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.zaxis_name)
+        self.get_multi_axes(2).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.zaxis_name)
+        self.get_multi_axes(3).bar3d(self.data[0][0], self.data[0][1], self.data[0][2], self.data[0][3], self.data[0][4], self.data[0][5], color=self.color, label=self.zaxis_name)
         return self

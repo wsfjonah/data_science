@@ -29,6 +29,8 @@ class AccessLogETL(base_etl.BaseETL):
     label_x = 'Date Time'
     label_y = 'Count'
 
+    curr_key = ''
+
     def __init__(self, title, label_x, label_y, url_patterns='api'):
         base_etl.BaseETL.__init__(self)
         self.title = title
@@ -39,6 +41,7 @@ class AccessLogETL(base_etl.BaseETL):
     def extract(self, key):
         self.data.clear()
         file_path = os.path.join(root_dir, sub_dir, key)
+        self.curr_key = key
         try:
             fobj = open(file_path, 'r')
         except IOError as e:
@@ -95,6 +98,9 @@ class AccessLogETL(base_etl.BaseETL):
             chart.set_data(x=v[0], y=v[1], label=k)
         return chart.plot().show()
 
-
+    def save_echarts(self):
+        file_path = os.path.join(root_dir, sub_dir, self.curr_key+'.html')
+        print(file_path)
+        self.get_echarts().render(file_path)
 
 

@@ -18,12 +18,15 @@ class BaseAxis:
 
     x_data = []
 
-    def __init__(self, title, x_axis_name, y_axis_name, width=400, height=400):
+    def __init__(self, title, x_axis_name, y_axis_name, width=400, height=400, main_chart_type='line'):
         self.title = title
         self.x_axis_name = x_axis_name
         self.y_axis_name = y_axis_name
         self.width = width
         self.height = height
+        if main_chart_type is 'bar':
+            self._main_chart_type = pyecharts.charts.Bar
+            self._x_axis_type = 'category'
         self._init_base_axis()
 
     def _init_base_axis(self):

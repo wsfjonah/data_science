@@ -17,7 +17,15 @@ def test_base_axis():
     chart.add_y_axis(y)
     print(x)
     print(y)
-    chart.get_chart().render('base.html')
+    chart.get_chart().render('base1.html')
+
+    chart = base_axis.BaseAxis('Data Chart', 'X', 'Y axis', main_chart_type='bar')
+    n = 8
+    x = (np.arange(n) + 1).tolist()
+    y = np.random.randint(1, 10, n).tolist()
+    chart.set_x_axis(x)
+    chart.add_y_axis(y)
+    chart.get_chart().render('base2.html')
 
 
 def test_bar_echarts():
@@ -43,7 +51,7 @@ def test_timeseries_chart():
 
 
 if __name__ == "__main__":
-    test_timeseries_chart()
+    test_base_axis()
     # test_bar_echarts()
     # test_scatter_chart()
 
